@@ -7,29 +7,29 @@ interface SSRProps {
 }
 
 const PageDetail = (props : SSRProps) => {
-    console.log(props.pid)
+
     return (
         <>
         <h1>Page {props.pid}</h1>
             <div className="productCard">
-                <img src="" alt=""/>
-                <p>title: test Ankit</p>
-                <p>price: test 500</p>
-
+                <img src={props.product.image} alt={props.product.title}/>
+                <p>title: {props.product.title}</p>
+                <p>price: {props.product.price}</p>
             </div>
         </>
     )
 }
 
- export async function getServerSideProps(context: any, myProduct: any) {
-
-    axios.get(`https://fakestoreapi.com/products/${context.query.pid}`).then((res)=> console.log(res.data))
+ export async function getServerSideProps(context: any) {
+    let res = await axios.get(`https://fakestoreapi.com/products/${context.query.pid}`)
+    console.log("dataa", res)
     return {
         props: {
             name: "Ankit",
-            pid: context.query.pid
+            pid: context.query.pid,
+            product: res.data
+
         }
     }
-console.log("myProduct", myProduct)
  }
 export default PageDetail;
