@@ -13,7 +13,7 @@ const productListPage = (props: SSRProps) => {
           <>
             <div className=" border border-grey-600 text-center cursor-pointer ">
               <img
-                className="w-52 h-52 m-5 p-5 m-auto "
+                className="w-52 h-52 m-4.25 p-5 m-auto "
                 src={item.image}
                 alt={item.title}
               />
