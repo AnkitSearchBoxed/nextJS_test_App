@@ -6,18 +6,19 @@ interface SSRProps {
 
 const productListPage = (props: SSRProps) => {
   return (
-    <div className="border border-grey-800 max-w-xl max-h-screen m-auto mt-20">
+    <>
       <h1 className="text-red-400 text-center text-2xl">Product list</h1>
       {props.product.map((item: any) => (
         <>
           <div className="text-center cursor-pointer">
             <img className="w-52 m-auto" src={item.image} alt={item.title} />
-            <p>title: {item.title}</p>
-            <p>price: {item.price} /-</p>
+            <p>Title: {item.title.slice(1, 17).toUpperCase()}</p>
+            <p>Price: {item.price} /-</p>
           </div>
         </>
       ))}
-    </div>
+      <div className="border border-grey-800 max-w-xl  mt-20 flex "></div>
+    </>
   );
 };
 
