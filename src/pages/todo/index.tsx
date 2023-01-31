@@ -13,12 +13,12 @@ const queryClient = new QueryClient();
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Todo />
+      <CreateTodo />
     </QueryClientProvider>
   );
 }
 
-function Todo() {
+function CreateTodo() {
   const { isLoading, error, data } = useQuery({
     queryKey: ["todo"],
     queryFn: () => axios.get("/todo").then((res: any) => res?.data),
